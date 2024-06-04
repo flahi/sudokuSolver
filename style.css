@@ -1,0 +1,82 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+.header {
+    text-align: center;
+    background-color: antiquewhite;
+    padding: 30px;
+    font-family: "Inconsolata", monospace;
+    font-weight: 200;
+    font-style: normal;
+    font-variation-settings:
+      "wdth" 100;
+    letter-spacing: 7px;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+  }
+.sudoku-board {
+    display: grid;
+    grid-template-columns: repeat(9, 40px);
+    grid-template-rows: repeat(9, 40px);
+    gap: 1px;
+    background-color: black;
+    margin: 20px;
+    font-family: "Quicksand", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+}
+.sudoku-cell {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    font-size: 20px;
+    border: 1px solid #ddd;
+    cursor: pointer;
+}
+.sudoku-cell:nth-child(n+28):nth-child(-n+36), .sudoku-cell:nth-child(n+55):nth-child(-n+63) {
+    border-top: 1px solid black;
+}
+.sudoku-cell:nth-child(3n+1) {
+    border-left: 1px solid black;
+}
+.sudoku-cell:nth-child(-n+9) {
+    border-top: 3px solid black;
+}
+.sudoku-cell:nth-child(n+73) {
+    border-bottom: 3px solid black;
+}
+.sudoku-cell:nth-child(9n+1) {
+    border-left: 3px solid black;
+}
+.sudoku-cell:nth-child(9n) {
+    border-right: 3px solid black;
+}
+.sudoku-cell.highlighted, .sudoku-cell:focus {
+    background-color: #e0e0e0;
+    border-radius: 0;
+}
+.sudoku-controls {
+    display: flex;
+    justify-content: space-around;
+}
+.sudoku-controls button {
+    padding: 16px 24px;
+    width: 100%;
+    margin: 0 10px;
+    font-family: "Inconsolata", monospace;
+    font-size: 1.25rem;
+}
+#solve-button {
+    background-color: mediumseagreen;
+    color: #fff;
+    background-color: 1px solid #3e3e3e;
+}
