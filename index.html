@@ -149,9 +149,27 @@
 
             document.getElementById("reset-button").addEventListener('click', () => {
                 cells.forEach(cell => {
+                    cell.style.color = 'black';
                     cell.textContent = '';
                 })
-            })
+            });
+            document.getElementById("solve-button").addEventListener('click', () => {
+                const solvedBoard = solveAndGetBoard(cells);
+                if (solvedBoard.flat().every(cell => cell === 0)) {
+                    alert("The board is invalid or unsolvable.");
+                } else {
+                    let index = 0;
+                    for (let row = 0; row < 9; row++) {
+                        for (let col = 0; col < 9; col++) {
+                            if (cells[index].textContent=='') {
+                                cells[index].style.color = '#869096';
+                            }
+                            cells[index].textContent = solvedBoard[row][col] || '';
+                            index++;
+                        }
+                    }
+                }
+            });
         </script>
     </body>
 </html>
